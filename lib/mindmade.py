@@ -7,7 +7,7 @@ Created on Jul 18, 2011
 __all__ = [ "log", "notify", "htmldecode", "fetchHttp" ]
 
 import re
-import urllib2, HTMLParser
+import urllib, urllib2, HTMLParser
 import xbmc
 
 
@@ -17,7 +17,7 @@ entitydict = { "E4": u"\xE4", "F6": u"\xF6", "FC": u"\xFC",
 
 
 def log( msg):
-    xbmc.output("### %s" % msg, level=xbmc.LOGNOTICE)
+    xbmc.log("### %s" % msg, level=xbmc.LOGNOTICE)
 
 def notify( title, message):
     xbmc.executebuiltin("XBMC.Notification("+title+","+message+")")
@@ -33,13 +33,12 @@ def htmldecode( s):
         
     return s
 
-def fetchHttp( url):
+def fetchHttp( url, args={}, hdrs={}):
     log("fetchHttp " + url)
-    hdrs = {
-        "User-Agent": "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3",
-    }
+    url = url + "?" + urllib.urlencode( args) 
+    hdrs["User-Agent"] = "Mozilla/5.0 (X11; Linux i686; rv:5.0) Gecko/20100101 Firefox/5.0"
 
-    req = urllib2.Request( url, headers=hdrs)
+    req = urllib2.Request( url, urllib.urlencode( args), hdrs)
     response = urllib2.urlopen( req)
     encoding = re.findall("charset=([a-zA-Z0-9\-]+)", response.headers['content-type'])
     text = response.read()
@@ -48,5 +47,4 @@ def fetchHttp( url):
     else:
         responsetext = text
     response.close()
-#    return responsetext.encode("utf-8")
     return responsetext

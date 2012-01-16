@@ -1,4 +1,9 @@
 
+version 0.1.1
+
+  * extended fetchHttp call to support headers and arguments
+
 version 0.1.0
 
   * initial release
+
