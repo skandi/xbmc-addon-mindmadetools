@@ -1,4 +1,9 @@
 
+version 0.1.2
+
+  * extended log() function to write to a logfile
+  * added support for POST requests to fetchHttp() function
+
 version 0.1.1
 
   * extended fetchHttp call to support headers and arguments
