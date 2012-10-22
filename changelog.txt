@@ -1,4 +1,9 @@
 
+version 0.2.0
+  * added functions to persistently get/set data
+  * new function to say hi to mindmade.org server and send
+    some anonymous (check source!) usage data.
+
 version 0.1.2
 
   * extended log() function to write to a logfile
