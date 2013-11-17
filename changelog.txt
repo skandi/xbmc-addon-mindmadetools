@@ -1,4 +1,7 @@
 
+version 0.2.3
+  * fixed dependencies for Frodo
+
 version 0.2.2
   * fixed syntax in addon.xml
 
