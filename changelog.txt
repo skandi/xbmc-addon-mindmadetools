@@ -1,4 +1,7 @@
 
+version 0.3.0
+  * include own jsonrpc library
+
 version 0.2.3
   * fixed dependencies for Frodo
 

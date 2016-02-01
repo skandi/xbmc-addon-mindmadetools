@@ -49,7 +49,7 @@ def htmldecode( s):
 
 def fetchHttp( url, args={}, hdrs={}, post=False):
     log( "fetchHttp(%s): %s" % ("POST" if post else "GET", url))
-    if args: log( "args: %s" % args)
+    if args: log( "args-keys: %s" % args.keys())
     hdrs["User-Agent"] = "Mozilla/5.0 (X11; Linux i686; rv:5.0) Gecko/20100101 Firefox/5.0"
     if post:
         req = urllib2.Request( url, urllib.urlencode( args), hdrs)
